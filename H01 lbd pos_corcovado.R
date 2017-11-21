@@ -16,7 +16,7 @@ setwd("C:/Users/mauricio.mardones/Documents/GINGAM/Machas/Eval_dir")
 #ahora con todos los datos, 0 y 1
 dir()
 datos<-read.csv("C:/Users/mauricio.mardones/Documents/GINGAM/Machas/Eval_dir/DensMacha.csv", sep = ";")
-playa<-c("Blanca","Corcovado","Godoy","MaoToro","Pangal","Pichicuyén","Pucaihuén","Tajamar")
+playa<-c("Blanca","Corcovado","Godoy","MaoToro","Pangal","PichicuyÃ©n","PucaihuÃ©n","Tajamar")
 
 for(i in 1:length(playa)){
 dat<-datos[datos$Playa==playa[i]&datos$Total>0,,]
@@ -47,6 +47,7 @@ bc_ord=bc[order(-lik),]
 Lambda_optimo=bc_ord[1,1]
 Lambda_optimo
 
+#Comentario
 #lambda 
 #-0.3466667 
 x11()
@@ -239,7 +240,7 @@ SumofSquares<-summary(bin1HLvario.fit1out)$sum.of.squares
 
 mb1<-rbind(method,covmodel,sigma,phi,kappa,nugget,rango,SumofSquares)
 
-plot(bin1HLpos,main="Esférico",xlab = "Distancia (m)", ylab = "Semivarianza")
+plot(bin1HLpos,main="EsfÃ©rico",xlab = "Distancia (m)", ylab = "Semivarianza")
 bin1HLvario.fit2out<-variofit(bin1HLpos,cov.model="spherical",fix.nugget=FALSE,max.dist=distmax)
 lines(bin1HLvario.fit2out,lwd=2,col="black")
 #legend(x=70, y=10000, lwd=2, col="red",legend="spherical")
@@ -310,7 +311,7 @@ lines(bin1HLvario.fit3out,lwd=3,lty=2,col="black")
 bin1HLvario.fit4out<-variofit(bin1HLpos,cov.model="exponential",fix.nugget=FALSE,max.dist=distmax)
 lines(bin1HLvario.fit4out,lwd=3,lty=1,col="black")
 
-legend(x=10, y=32, lty=c(1,2,1), lwd=c(3,3,3), col=c("grey","black", "black"), legend=c("Esférico", "Gausiano", "Exponencial"))
+legend(x=10, y=32, lty=c(1,2,1), lwd=c(3,3,3), col=c("grey","black", "black"), legend=c("EsfÃ©rico", "Gausiano", "Exponencial"))
 
 ####################################################################################
 
@@ -411,7 +412,7 @@ summary(ML.xval.expHL01)
 
 
 #######################################################################
-#Después de la Validación Cruzada escojo el modelo gausiano, ya que###
+#DespuÃ©s de la ValidaciÃ³n Cruzada escojo el modelo gausiano, ya que###
 #tiene el menor valor de CME. Por lo####
 #tanto, es el indicado para hacer el kriging###########################
 #######################################################################
@@ -459,7 +460,7 @@ library(polyclip)
 library(PBSmapping)
 #POLIGONO AREA TOTAL
 # Obtiene los puntos limites del area
-source("generapolyJC.R")#llama a función
+source("generapolyJC.R")#llama a funciÃ³n
 nn=((max(dat$N)-min(dat$N))/100);nn
 polig   <- genera.polyJC(dat$E,dat$N,100,10)
 convexH <- data.frame(E=polig[,1],N=polig[,2])
